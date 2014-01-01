@@ -98,7 +98,7 @@ read_address()
 
 delete_address()
 {
-  tmp=`awk -v edited="$family_name\t$name\t$address\t$age" 'NR == '"$1"' { print "" } NR != '"$1"' { print $0 }' "$file"`
+  tmp=`awk 'NR == '"$1"' { print "" } NR != '"$1"' { print $0 }' "$file"`
   echo "$tmp" > "$file"
 }
 
